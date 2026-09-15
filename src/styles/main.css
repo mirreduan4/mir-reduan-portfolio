@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap');
+
+:root {
+  --bg-primary: #050508;
+  --bg-secondary: #09090f;
+  --bg-glass: rgba(12, 12, 18, 0.65);
+  --bg-glass-card: rgba(16, 16, 24, 0.55);
+  --bg-glass-hover: rgba(26, 26, 38, 0.7);
+
+  --accent-red: #ff2a4b;
+  --accent-red-glow: rgba(255, 42, 75, 0.45);
+  --accent-crimson: #d90429;
+  --accent-deep-red: #800010;
+  --accent-cyan: #00f0ff;
+  --accent-amber: #ffaa00;
+
+  --text-main: #f3f4f8;
+  --text-muted: #9496a8;
+  --text-subtle: #575a6e;
+
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-red: rgba(255, 42, 75, 0.35);
+  --border-active: rgba(255, 42, 75, 0.85);
+
+  --font-display: 'Syne', sans-serif;
+  --font-serif-hero: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --z-canvas: 1;
+  --z-vignette: 2;
+  --z-hud: 10;
+  --z-modal: 100;
+  --z-cursor: 9999;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #1f202c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red);
+}
+
+::selection {
+  background: var(--accent-red);
+  color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}

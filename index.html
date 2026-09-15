@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIR REDUAN // Creative Technologist & 3D Web Architect</title>
+    <meta name="description" content="Cinematic 3D Portfolio of Mir Reduan — Full-Stack Engineer, Creative Technologist, and 3D Web Architect." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Performance: Preload critical LCP portrait image with fetchpriority="high" -->
+    <link rel="preload" as="image" href="/image/portarit.png.png" fetchpriority="high" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/cinematic.css" />
+    <link rel="stylesheet" href="/src/styles/hud.css" />
+  </head>
+  <body>
+    <!-- Preloader / Bootloader Sequence -->
+    <div id="preloader">
+      <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-red); letter-spacing: 0.25em;">
+        INITIALIZING SYSTEM // PROTOCOL REDUAN-3D
+      </div>
+      <div class="loader-bar-frame">
+        <div id="loader-bar-fill" class="loader-bar-fill"></div>
+      </div>
+      <div id="loader-status" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+        COMPILING SHADER PIPELINE...
+      </div>
+    </div>
+
+    <!-- WebGL Canvas Container for 3D Embers, 3D Portrait, and 3D Artifact -->
+    <div id="webgl-canvas-container" aria-hidden="true"></div>
+
+    <!-- Cinematic Post-Processing Overlays -->
+    <div class="cinematic-vignette" aria-hidden="true"></div>
+    <div class="cinematic-grain" aria-hidden="true"></div>
+    <div class="cinematic-scanlines" aria-hidden="true"></div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Cyberpunk Floating Navigation -->
+    <header>
+      <nav class="cyber-nav" aria-label="Main Navigation">
+        <a href="#hero" class="brand-monogram" data-interactive>
+          <span>MIR REDUAN</span>
+          <span class="brand-badge">CORE v3.4</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active" data-interactive>Home</a></li>
+          <li><a href="#about" class="nav-link" data-interactive>Identity</a></li>
+          <li><a href="#projects" class="nav-link" data-interactive>Vault</a></li>
+          <li><a href="#lab" class="nav-link" data-interactive>3D Lab</a></li>
+          <li><a href="#timeline" class="nav-link" data-interactive>Timeline</a></li>
+          <li><a href="#contact" class="nav-link" data-interactive>Transmit</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button id="audio-toggle" class="audio-toggle-btn" aria-label="Toggle Audio Ambience" data-interactive>
+            <span id="audio-indicator" class="audio-indicator"></span>
+            <span id="audio-label">AUDIO: OFF</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Section 1: Hero Section -->
+      <section id="hero" class="portfolio-section">
+        <div class="hud-container">
+          <div class="hero-content">
+            <div>
+              <div class="hero-tagline">
+                <span class="hero-tagline-dot"></span>
+                <span>SYSTEM ONLINE // ARCHIVE ACTIVE</span>
+              </div>
+              <h1 class="hero-title">
+                MIR <span class="title-accent">REDUAN</span>
+              </h1>
+              <div id="scramble-title" class="hero-subtitle">
+                CREATIVE TECHNOLOGIST // FULL-STACK ARCHITECT
+              </div>
+              <p class="hero-desc">
+                Architecting high-performance digital environments, real-time 3D WebGL interfaces, and resilient distributed cloud systems with cinematic precision.
+              </p>
+              <div class="hero-actions">
+                <a href="#projects" class="cyber-btn cyber-btn-primary" data-interactive>
+                  <span>EXPLORE VAULT</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <a href="#contact" class="cyber-btn cyber-btn-secondary" data-interactive>
+                  <span>INITIATE TRANSMISSION</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Visual Spacer for 3D Holographic Portrait rendered in WebGL Canvas -->
+            <div style="min-height: 480px; position: relative;" class="hero-canvas-spacer" aria-label="Mir Reduan 3D Hologram">
+              <div style="position: absolute; bottom: 20px; right: 20px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-subtle); text-align: right;">
+                <div>HOLO//REF: MR-PORTRAIT-2026</div>
+                <div style="color: var(--accent-red);">DRAG CURSOR TO PARALLAX 3D MESH</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Identity & Codex (About + Skills) -->
+      <section id="about" class="portfolio-section">
+        <div class="hud-container">
+          <div class="section-header">
+            <span class="section-label">// 01 &mdash; IDENTITY CODEX</span>
+            <h2 class="section-title">ENGINEERING MASTERY</h2>
+          </div>
+
+          <!-- Statistics Telemetry -->
+          <div id="stats-container" class="stats-row" style="margin-bottom: 3.5rem;"></div>
+
+          <!-- Skills Grid -->
+          <div id="skills-container" class="skills-grid"></div>
+        </div>
+      </section>
+
+      <!-- Section 3: The Holo-Vault (Projects) -->
+      <section id="projects" class="portfolio-section">
+        <div class="hud-container">
+          <div class="section-header">
+            <span class="section-label">// 02 &mdash; THE HOLO-VAULT</span>
+            <h2 class="section-title">FEATURED ARCHITECTURE</h2>
+          </div>
+
+          <div id="projects-container" class="projects-grid"></div>
+        </div>
+      </section>
+
+      <!-- Section 4: Interactive 3D Lab -->
+      <section id="lab" class="portfolio-section">
+        <div class="hud-container">
+          <div class="section-header">
+            <span class="section-label">// 03 &mdash; EXPERIMENTAL LAB</span>
+            <h2 class="section-title">QUANTUM CORE RUNTIME</h2>
+          </div>
+
+          <div class="cyber-card lab-card">
+            <div>
+              <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 1rem; color: #fff;">
+                REAL-TIME SHADER HARNESS
+              </h3>
+              <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem;">
+                Experience real-time WebGL rendering dynamics. Adjust the resonance harmonic frequencies of the background 3D core in real time to alter vertex displacement and particle emission velocities.
+              </p>
+              <div class="lab-controls">
+                <div class="lab-btn-group">
+                  <button id="core-speed-normal" class="cyber-btn cyber-btn-secondary" data-interactive>
+                    STABLE (1.0x)
+                  </button>
+                  <button id="core-speed-overclock" class="cyber-btn cyber-btn-primary" data-interactive>
+                    OVERCLOCK (3.5x)
+                  </button>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-subtle);">
+                  STATUS: HARMONIC HARNESS CONNECTED // THREE.JS r174
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="stat-box" style="text-align: left;">
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-red); margin-bottom: 0.25rem;">
+                  COMPUTE ARCHITECTURE
+                </div>
+                <div style="font-size: 1.1rem; color: #fff; font-weight: 600;">
+                  Additive Blending & Parametric Torus Rings
+                </div>
+              </div>
+              <div class="stat-box" style="text-align: left;">
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-red); margin-bottom: 0.25rem;">
+                  SPATIAL COORDINATES
+                </div>
+                <div id="spatial-coords" style="font-family: var(--font-mono); font-size: 0.9rem; color: #fff;">
+                  X: 0.000 // Y: -32.000 // Z: -4.000
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Timeline & Flight Path -->
+      <section id="timeline" class="portfolio-section">
+        <div class="hud-container">
+          <div class="section-header">
+            <span class="section-label">// 04 &mdash; FLIGHT PATH</span>
+            <h2 class="section-title">CAREER TRAJECTORY</h2>
+          </div>
+
+          <div id="timeline-container" class="timeline-conduit"></div>
+        </div>
+      </section>
+
+      <!-- Section 6: Encrypted Transmission (Contact) -->
+      <section id="contact" class="portfolio-section">
+        <div class="hud-container">
+          <div class="section-header">
+            <span class="section-label">// 05 &mdash; ENCRYPTED TRANSMISSION</span>
+            <h2 class="section-title">INITIATE CONTACT</h2>
+          </div>
+
+          <div class="contact-container">
+            <div>
+              <h3 style="font-family: var(--font-display); font-size: 2rem; color: #fff; margin-bottom: 1.25rem;">
+                LET'S CONSTRUCT THE FUTURE
+              </h3>
+              <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem;">
+                Whether you need a high-impact cinematic 3D web experience, a resilient full-stack cloud application, or an innovative creative installation, my channels are open for collaboration.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 1.25rem; font-family: var(--font-mono); font-size: 0.9rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="color: var(--accent-red);">EMAIL //</span>
+                  <a href="mailto:mirreduan@example.com" class="glitch-hover" style="color: #fff;" data-interactive>
+                    contact@mirreduan.dev
+                  </a>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="color: var(--accent-red);">NETWORK //</span>
+                  <a href="https://github.com/mirreduan" target="_blank" rel="noopener" style="color: var(--text-muted);" class="glitch-hover" data-interactive>GitHub</a>
+                  <span style="color: var(--text-subtle);">/</span>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" style="color: var(--text-muted);" class="glitch-hover" data-interactive>LinkedIn</a>
+                  <span style="color: var(--text-subtle);">/</span>
+                  <a href="https://twitter.com" target="_blank" rel="noopener" style="color: var(--text-muted);" class="glitch-hover" data-interactive>X (Twitter)</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transmission Form -->
+            <div class="cyber-card">
+              <form id="contact-form" class="transmission-form">
+                <div class="form-group">
+                  <label for="sender-name" class="form-label">IDENTITY / NAME</label>
+                  <input type="text" id="sender-name" class="form-input" placeholder="COMMANDER SHEPARD" required data-interactive />
+                </div>
+                <div class="form-group">
+                  <label for="sender-email" class="form-label">FREQUENCY / EMAIL</label>
+                  <input type="email" id="sender-email" class="form-input" placeholder="shepard@normandy.alliance" required data-interactive />
+                </div>
+                <div class="form-group">
+                  <label for="sender-message" class="form-label">PAYLOAD / TRANSMISSION</label>
+                  <textarea id="sender-message" class="form-textarea" rows="4" placeholder="TRANSMIT YOUR PROJECT PARAMETERS..." required data-interactive></textarea>
+                </div>
+                
+                <button type="submit" id="submit-btn" class="cyber-btn cyber-btn-primary" style="width: 100%;" data-interactive>
+                  <span>TRANSMIT PACKET</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+
+                <div id="form-status" class="form-status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Project Details Native Modal Dialog -->
+    <dialog id="project-modal" class="cyber-modal" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div>
+          <div id="modal-category" class="project-category"></div>
+          <h2 id="modal-title" class="project-title" style="margin-bottom: 0;"></h2>
+        </div>
+        <button id="modal-close" class="modal-close-btn" aria-label="Close dialog" data-interactive>&times;</button>
+      </div>
+
+      <div id="modal-subtitle" style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-red); margin-bottom: 1.25rem;"></div>
+
+      <p id="modal-desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem;"></p>
+
+      <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fff; margin-bottom: 0.75rem;">
+        TECHNICAL TELEMETRY:
+      </div>
+      <div id="modal-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem;"></div>
+
+      <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fff; margin-bottom: 0.75rem;">
+        STACK INTEGRATION:
+      </div>
+      <div id="modal-tags" class="project-tags" style="margin-bottom: 2.5rem;"></div>
+
+      <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+        <a id="modal-repo-btn" href="#" target="_blank" rel="noopener" class="cyber-btn cyber-btn-secondary" data-interactive>
+          <span>VIEW REPO</span>
+        </a>
+        <a id="modal-demo-btn" href="#" target="_blank" rel="noopener" class="cyber-btn cyber-btn-primary" data-interactive>
+          <span>LAUNCH DEMO</span>
+        </a>
+      </div>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+      <div class="hud-container">
+        <div class="footer-content">
+          <div>
+            &copy; 2026 MIR REDUAN // ALL RIGHTS RESERVED
+          </div>
+          <div class="footer-status">
+            <span class="footer-status-dot"></span>
+            <span>SYSTEM STATUS: 100% OPERATIONAL</span>
+          </div>
+          <div id="live-clock" style="color: var(--accent-red); font-weight: 600;">
+            UTC 00:00:00
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Main Entry Module -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
