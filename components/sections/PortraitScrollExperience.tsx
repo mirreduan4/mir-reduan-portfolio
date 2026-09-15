@@ -14,7 +14,7 @@ export const PortraitScrollExperience: React.FC<PortraitScrollExperienceProps> =
   mousePos,
 }) => {
   return (
-    <section className="relative w-full h-[320vh] pointer-events-none" id="experience">
+    <section className="relative w-full h-[320vh] pointer-events-none z-[5]" id="experience">
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         {/* Intro Hero Typography (fades smoothly as scroll begins) */}
         <div
@@ -34,7 +34,7 @@ export const PortraitScrollExperience: React.FC<PortraitScrollExperienceProps> =
               <span>DIGITAL UNIVERSE // 2026</span>
             </div>
 
-            <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-text-primary leading-[0.9] mb-4">
+            <h1 className="font-serif text-[clamp(2.5rem,12vw,5rem)] sm:text-7xl md:text-8xl font-bold tracking-tight text-text-primary leading-[0.9] mb-4">
               REDOXIDE
             </h1>
 

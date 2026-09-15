@@ -78,7 +78,7 @@ export const GlassSkillCard: React.FC<GlassSkillCardProps> = ({
 
   return (
     <div
-      className={`absolute ${positionClasses[skillGroup.position] || 'top-1/2 left-1/2'} z-20 pointer-events-auto transition-all duration-300 ease-out`}
+      className={`absolute glass-skill-card-mobile-hide ${positionClasses[skillGroup.position] || 'top-1/2 left-1/2'} z-20 pointer-events-auto transition-all duration-300 ease-out`}
       style={{
         opacity,
         filter: blur > 0.5 ? `blur(${blur}px)` : 'none',
