@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 
@@ -80,7 +80,7 @@ const socialLinks = [
 export const ContactScene: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
-  const email = 'mirreduan@gmail.com';
+  const email = 'mirreduan4@gmail.com';
 
   const handleCopy = () => {
     soundSynth.playTick(990, 0.06);

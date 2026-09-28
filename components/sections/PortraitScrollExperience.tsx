@@ -14,13 +14,13 @@ export const PortraitScrollExperience: React.FC<PortraitScrollExperienceProps> =
   mousePos,
 }) => {
   return (
-    <section className="relative w-full h-[320vh] pointer-events-none z-[5]" id="experience">
+    <section className="relative w-full h-[140vh] pointer-events-none z-[5]" id="experience">
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         {/* Intro Hero Typography (fades smoothly as scroll begins) */}
         <div
           className="absolute inset-0 flex flex-col justify-between p-6 sm:p-12 md:p-16 z-10 pointer-events-none transition-opacity duration-500"
           style={{
-            opacity: Math.max(0, 1 - scrollProgress * 5),
+            opacity: Math.max(0, 1 - scrollProgress * 6),
             transform: `translate3d(0, -${scrollProgress * 150}px, 0)`,
           }}
         >
@@ -28,7 +28,7 @@ export const PortraitScrollExperience: React.FC<PortraitScrollExperienceProps> =
           <div />
 
           {/* Hero Content */}
-          <div className="max-w-2xl">
+          <div className="max-w-2xl pointer-events-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded border border-red-500/25 bg-red-950/20 text-red-cinematic text-xs font-mono tracking-widest uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-red-highlight animate-pulse" />
               <span>DIGITAL UNIVERSE // 2026</span>
@@ -53,7 +53,7 @@ export const PortraitScrollExperience: React.FC<PortraitScrollExperienceProps> =
           </div>
 
           {/* Bottom Telemetry */}
-          <div className="flex justify-between items-end font-mono text-[10px] tracking-widest text-text-muted">
+          <div className="flex justify-between items-end font-mono text-[10px] tracking-widest text-text-muted pointer-events-none">
             <div>INDEX // 01 &mdash; 07</div>
             <div className="text-red-highlight">2.5D WEBGL ACTIVE</div>
           </div>
